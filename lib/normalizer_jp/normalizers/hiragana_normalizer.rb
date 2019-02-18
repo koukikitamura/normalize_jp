@@ -9,7 +9,7 @@ module NormalizerJp
         private
 
         def convert_katakana_to_hiragana(value)
-          NKF.nkf('-w -W --hiragana')
+          NKF.nkf('-w -W --hiragana', value)
         end
       end
     end
