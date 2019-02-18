@@ -40,6 +40,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
+    sqlite3 (1.3.13)
     thread_safe (0.3.6)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
@@ -53,6 +54,7 @@ DEPENDENCIES
   normalizer_jp!
   rake (~> 10.0)
   rspec (~> 3.0)
+  sqlite3 (~> 1.3, < 1.4)
 
 BUNDLED WITH
    1.17.1
