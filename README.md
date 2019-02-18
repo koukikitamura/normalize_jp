@@ -1,8 +1,9 @@
 # NormalizerJp
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/normalizer_jp`. To experiment with that code, run `bin/console` for an interactive prompt.
+This gem a provites a simple and flexible way to normalize attributes of
+Ruby Object. NormalizerJP includes a word JP(stands for Japanese), but this gem
+is useful for the other(not Japanese) because you can user custom Normalizer.
 
-TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
@@ -12,23 +13,57 @@ Add this line to your application's Gemfile:
 gem 'normalizer_jp'
 ```
 
-And then execute:
-
-    $ bundle
-
 Or install it yourself as:
 
     $ gem install normalizer_jp
 
 ## Usage
 
-TODO: Write usage instructions here
+### ActiveRecord
+you can use normalizers of this gem.
+```ruby
+class User < ActiveRecord
+  include NormalizerJp::Normalizers
 
-## Development
+  mount_normalizer :name_kana, HiraganaNormalizer
+end
+```
+normlizer works as following:
+```ruby
+user = User.new
+user.name_kana = 'イトウアサコ'
+user.name_kana #=> 'いとうあさこ'
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+you can use custom normalizer. customer normalizer's responsibility is implementation of call method as class method. It's super cool.
+```ruby
+# app/normalizers/upcase_normalizer.rb
+class UpcaseNormalizer
+  class << self
+    def call(attribute_value)
+      attribute_value.to_s.upcase
+    end
+  end
+end
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+# app/models/blog.rb
+class Blog < ActiveRecord
+  mount_normalizer :title, UpcaseNormalizer
+end
+```
+
+custom normalizer works as following:
+```ruby
+blog = Blog.new
+blog.title = 'awesome title'
+blog.title #=> 'AWESOME TITLE'
+```
+### Plain Old Ruby Object
+this gem dose not depends active_record, which mean we use this gem in
+Plain Old Ruby Object.
+
+## Versioning
+This project uses [Semantic Versioning](https://semver.org/) for release numbering.
 
 ## Contributing
 
