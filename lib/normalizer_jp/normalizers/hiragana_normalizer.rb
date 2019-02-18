@@ -1,5 +1,5 @@
 module NormalizerJp
-  module Noramaliers
+  module Normalizers
     class HiraganaNormalizer
       class << self
         def call(attribute_value)
