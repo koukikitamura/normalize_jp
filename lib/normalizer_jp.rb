@@ -1,5 +1,7 @@
 require "normalizer_jp/version"
 require "normalizer_jp/normalize_builder"
+require "normalizer_jp/normalizers"
+require "nkf"
 require "active_support/concern"
 
 begin
