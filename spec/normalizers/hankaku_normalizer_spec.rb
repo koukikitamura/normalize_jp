@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-RSpec.describe Normalizers::HankakuNormalizer do
+RSpec.describe NormalizerJp::Normalizers::HankakuNormalizer do
   describe '#call' do
-    subject { Normalizers::HankakuNormalizer.call(value) }
+    subject { NormalizerJp::Normalizers::HankakuNormalizer.call(value) }
 
     context 'value is zenkaku' do
       context 'when characters are aplhabet' do

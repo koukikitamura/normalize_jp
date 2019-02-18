@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-RSpec.describe Normalizers::KatakanaNormalizer do
+RSpec.describe NormalizerJp::Normalizers::KatakanaNormalizer do
   describe '.call' do
-    subject { Normalizers::KatakanaNormalizer.call(value) }
+    subject { NormalizerJp::Normalizers::KatakanaNormalizer.call(value) }
 
     context 'when value is hiragana' do
       let(:value) { 'きたむら' }

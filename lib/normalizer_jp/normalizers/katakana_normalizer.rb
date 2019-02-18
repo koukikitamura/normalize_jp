@@ -1,14 +1,16 @@
-module Normalizers
-  class KatakanaNormalizer
-    class << self
-      def call(attribute_value)
-        convert_hiragana_to_katakana(attribute_value)
-      end
+module NormalizerJp
+  module Normalizers
+    class KatakanaNormalizer
+      class << self
+        def call(attribute_value)
+          convert_hiragana_to_katakana(attribute_value)
+        end
 
-      private
+        private
 
-      def convert_hiragana_to_katakana(value)
-        NKF.nkf('-w -W --katakana', value)
+        def convert_hiragana_to_katakana(value)
+          NKF.nkf('-w -W --katakana', value)
+        end
       end
     end
   end
