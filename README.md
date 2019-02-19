@@ -38,7 +38,7 @@ user.name_kana #=> 'いとうあさこ'
 you can use custom normalizer. customer normalizer's responsibility is implementation of call method as class method. It's super cool.
 ```ruby
 # app/normalizers/upcase_normalizer.rb
-class UpcaseNormalizer
+class UpcaseNormalizer < NormalizerJp::Normalizers::Base
   class << self
     def call(attribute_value)
       attribute_value.to_s.upcase
