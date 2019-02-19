@@ -24,14 +24,13 @@ Start off by generating normalizer:
 bin/rails g normalizer Strip
 ```
 
-this shoul give you a file in:
+this should give you a file in:
 
 ```
 app/normalizers/strip_normalizer.rb
 ```
 
-
-Check out this file for some hints on how you can customize your uploader. It should look something like this:
+Check out this file for some hints on how you can customize your normlizer. It should look something like this:
 
 ```ruby
 class StripNormalizer < NormalizerJp::Normalizers::Base
@@ -62,7 +61,7 @@ user.name_kana = 'イトウアサコ'
 user.name_kana #=> 'いとうあさこ'
 ```
 
-you can use custom normalizer. customer normalizer's responsibility is implementation of call method as class method. It's super cool.
+you can use custom normalizers. custom normalizers's responsibility is implementation of call method as class method. It's super cool.
 ```ruby
 # app/normalizers/upcase_normalizer.rb
 class UpcaseNormalizer < NormalizerJp::Normalizers::Base
