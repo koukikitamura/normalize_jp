@@ -2,8 +2,9 @@ module NormalizerJp
   module Normalizers
     class Base
       class << self
-        def call
-          raise NotImplementedError
+        def call(attribute_value)
+          raise NotImplementedError,
+                'Normalizer must implement call methods as class method'
         end
       end
     end
