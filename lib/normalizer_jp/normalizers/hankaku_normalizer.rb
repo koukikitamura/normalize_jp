@@ -1,6 +1,6 @@
 module NormalizerJp
   module Normalizers
-    class HankakuNormalizer
+    class HankakuNormalizer < Base
       class << self
         def call(atrribute_value)
           convert_alphabet_and_nubmer_to_hankaku(atrribute_value)

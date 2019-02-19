@@ -1,6 +1,6 @@
 module NormalizerJp
   module Normalizers
-    class KatakanaNormalizer
+    class KatakanaNormalizer < Base
       class << self
         def call(attribute_value)
           convert_hiragana_to_katakana(attribute_value)
