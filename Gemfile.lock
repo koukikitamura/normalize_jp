@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    normalizer_jp (0.4.4)
+    normalizer_jp (1.1.0)
       activerecord (~> 5.0)
       activesupport (~> 5.0)
 
