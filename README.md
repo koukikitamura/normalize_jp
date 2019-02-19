@@ -17,6 +17,33 @@ Or install it yourself as:
 
     $ gem install normalizer_jp
 
+## Getting Started
+Start off by generating normalizer:
+
+```
+bin/rails g normalizer Strip
+```
+
+this shoul give you a file in:
+
+```
+app/normalizers/strip_normalizer.rb
+```
+
+
+Check out this file for some hints on how you can customize your uploader. It should look something like this:
+
+```ruby
+class StripNormalizer < NormalizerJp::Normalizers::Base
+  class << self
+    # Normalizer class's responsibility is implimentaion of call method as class method
+    def call(attribute_value)
+      # Here's normalizer space
+    end
+  end
+end
+```
+
 ## Usage
 
 ### ActiveRecord
