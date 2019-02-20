@@ -2,7 +2,7 @@
 
 This gem a provites a simple and flexible way to normalize attributes of
 Ruby Object. NormalizerJP includes a word JP(stands for Japanese), but this gem
-is useful for the other(not Japanese) because you can user custom Normalizer.
+is useful for the other(not Japanese) because you can user yours customized Normalizer.
 
 
 ## Installation
